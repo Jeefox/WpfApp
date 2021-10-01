@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using WpfApp2.Models;
 
 namespace WpfApp2
 {
@@ -19,14 +7,32 @@ namespace WpfApp2
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {       
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new Page1();
-        }
+          
+        }     
 
         private void ButtClick1(object sender, RoutedEventArgs e)
+        {          
+            using(ValuteContext db=new ValuteContext())
+            {
+                Valute tableRow = new Valute { Id = "1", NumCode = "word", CharCode = "123", Nominal = 123, Name = "123", Value = 1.23 };
+                db.Valutes.Add(tableRow);
+                db.SaveChanges();
+                var Word = db.Valutes;
+                foreach (Valute v in Word)
+                {
+                    MessageBox.Show($"{v.Id}, {v.NumCode}");
+                }
+                
+
+            }
+        
+        }
+
+        private void ButtClick2(object sender, RoutedEventArgs e)
         {
 
         }

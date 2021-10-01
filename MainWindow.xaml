@@ -16,9 +16,8 @@
         <dxwui:HamburgerMenu.Content>
             <dxwui:NavigationFrame/>
         </dxwui:HamburgerMenu.Content>
-        <dxwui:HamburgerMenuNavigationButton Content="Home" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Navigation/Home_16x16.png}" GlyphHeight="16" IsSelected="True" Click="ButtClick1"/>
-        <dxwui:HamburgerMenuNavigationButton Content="New Page" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Actions/AddItem_16x16.png}" GlyphHeight="16"/>
-        <dxwui:HamburgerMenuHyperlinkButton Content="Support" NavigateUri="https://www.devexpress.com/Support/"/>
+        <dxwui:HamburgerMenuNavigationButton Content="Главная страница" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Navigation/Home_16x16.png}" GlyphHeight="16" IsSelected="True" Click="ButtClick1"/>
+        <dxwui:HamburgerMenuNavigationButton Content="Список курсов валют" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Actions/AddItem_16x16.png}" GlyphHeight="16" Click="ButtClick2"/>
     </dxwui:HamburgerMenu>
 
 </Window>
