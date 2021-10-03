@@ -8,16 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <dxwui:HamburgerMenu>
-        <dxwui:HamburgerMenu.BottomBarItems>
-            <dxwui:HamburgerMenuBottomBarNavigationButton Content="Settings" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Setup/Properties_16x16.png}" GlyphHeight="16"/>
-            <dxwui:HamburgerMenuBottomBarNavigationButton Content="About" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Support/Info_16x16.png}" GlyphHeight="16"/>
-        </dxwui:HamburgerMenu.BottomBarItems>
-        <dxwui:HamburgerMenu.Content>
-            <dxwui:NavigationFrame/>
-        </dxwui:HamburgerMenu.Content>
-        <dxwui:HamburgerMenuNavigationButton Content="Главная страница" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Navigation/Home_16x16.png}" GlyphHeight="16" IsSelected="True" Click="ButtClick1"/>
-        <dxwui:HamburgerMenuNavigationButton Content="Список курсов валют" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Actions/AddItem_16x16.png}" GlyphHeight="16" Click="ButtClick2"/>
-    </dxwui:HamburgerMenu>
+    <Frame Background="AliceBlue" Content="Frame" Name ="MainFrame" NavigationUIVisibility="Hidden"/>
 
 </Window>
