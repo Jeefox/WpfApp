@@ -18,7 +18,7 @@ namespace WpfApp2
         private void HamburgerMenuNavigationButton_Click_1(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Page2());
-            MainWindow.AddDataToTable();
+            
         }
     }
 }

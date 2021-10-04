@@ -16,7 +16,8 @@ namespace WpfApp2
         {
             InitializeComponent();
             MainFrame.Content = new Page1();
-           
+            AddDataToTable();
+
         }
 
         private void ButtClick1(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace WpfApp2
 
         }
 
-        public static void AddDataToTable()
+        private void AddDataToTable()
         {
             using (ValuteContext db = new ValuteContext())
             {
@@ -52,13 +53,16 @@ namespace WpfApp2
                 {
                     switch (reader.Name)
                     {
-                        case "Valute":
-                            while (reader.NodeType != XmlNodeType.Text)
+                        /*case "ValCurs":
+                            while (reader.NodeType != XmlNodeType.)
                             {
                                 reader.Read();
-
                             }
-                            z.Id = reader.Value;
+                            string data = reader.Value;
+                            break;*/
+                        case "Valute":
+                            
+                            z.Id = (string)reader.GetAttribute("ID");
                             count++;
                             break;
                         case "NumCode":
@@ -111,7 +115,7 @@ namespace WpfApp2
                             break;
                     }
 
-                    if (count < 6)
+                    if (count > 4)
                     {
                         masObj.Add(z);
                         count = 0;
