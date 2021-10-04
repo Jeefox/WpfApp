@@ -19,6 +19,11 @@
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
         </dx:EntitySimpleDataSource>
+        <dx:EntityCollectionViewSource x:Key="EntityCollectionViewSource" Culture="ru-RU" ContextType="{x:Type local:ValuteContext}" CollectionViewType="{x:Type ListCollectionView}" Path="Valutes">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:EntityCollectionViewSource>
     </Page.Resources>
 
     <Grid>
@@ -36,9 +41,9 @@
             <dxwui:HamburgerMenuHyperlinkButton Content="Support" NavigateUri="https://www.devexpress.com/Support/"/>
         </dxwui:HamburgerMenu>
 
-        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="430" Width="745" ItemsSource="{Binding Data, Source={StaticResource EntitySimpleDataSource1}}">
+        <dxg:GridControl AutoGenerateColumns="RemoveOld" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="430" Width="745" ItemsSource="{Binding Data, Source={StaticResource EntityCollectionViewSource}}">
             <dxg:GridControl.View>
-                <dxg:TableView ShowTotalSummary="True" Margin="0,-10,-2,-2" Height="440" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="745"/>
+                <dxg:TableView IsSynchronizedWithCurrentItem="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
 

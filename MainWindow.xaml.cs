@@ -9,118 +9,91 @@ namespace WpfApp2
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
-
+        private Page1 page = new Page1();
+        public static string data = "";
         public MainWindow()
         {
             InitializeComponent();
             MainFrame.Content = new Page1();
             AddDataToTable();
+            page.getInitData();
 
         }
 
         private void ButtClick1(object sender, RoutedEventArgs e)
         {
-            /* using (ValuteContext db = new ValuteContext())
-             {
-                 Valute tableRow = new Valute { };
-                 db.Valutes.Add(tableRow);
-                 db.SaveChanges();
-                 var Word = db.Valutes;
-                 db.Valutes.Add(masObj);
-                 foreach (Valute v in Word)
-                 {
-                     MessageBox.Show($"{v.Id}, {v.NumCode}");
-                 }
-             }*/
-
+           
         }
 
         private void AddDataToTable()
         {
             using (ValuteContext db = new ValuteContext())
             {
-                int count = 0;
+                
                 string URLString = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=04/10/2021";
                 XmlReader reader = new XmlTextReader(URLString);
 
                 List<Valute> masObj = new List<Valute>();
                 Valute z = new Valute();
-
-                reader.MoveToAttribute("NumCode");
+                
                 while (reader.Read())
                 {
+                    if (reader.NodeType == XmlNodeType.EndElement) reader.Skip();
                     switch (reader.Name)
                     {
-                        /*case "ValCurs":
-                            while (reader.NodeType != XmlNodeType.)
-                            {
-                                reader.Read();
-                            }
-                            string data = reader.Value;
-                            break;*/
-                        case "Valute":
-                            
+                        case "ValCurs":                            
+                            data = reader.GetAttribute("Date");
+                            break;
+                        case "Valute":                           
                             z.Id = (string)reader.GetAttribute("ID");
-                            count++;
                             break;
                         case "NumCode":
+                            
                             while (reader.NodeType != XmlNodeType.Text)
                             {
                                 reader.Read();
-
                             }
                             z.NumCode = (reader.Value);
-                            count++;
+
                             break;
                         case "CharCode":
+
                             while (reader.NodeType != XmlNodeType.Text)
                             {
                                 reader.Read();
-
                             }
-                            z.CharCode = (reader.Value);
-                            count++;
+                            z.CharCode = reader.Value;
                             break;
 
                         case "Nominal":
                             while (reader.NodeType != XmlNodeType.Text)
                             {
                                 reader.Read();
-
                             }
-                            z.Nominal = reader.Value;
-                            count++;
+                            z.Nominal = Convert.ToInt32(reader.Value);                            
                             break;
 
                         case "Name":
                             while (reader.NodeType != XmlNodeType.Text)
                             {
                                 reader.Read();
-
                             }
-                            z.Name = (reader.Value);
-                            count++;
+                            z.Name = reader.Value;                            
                             break;
 
                         case "Value":
                             while (reader.NodeType != XmlNodeType.Text)
                             {
                                 reader.Read();
-
                             }
-                            z.Value = reader.Value;
-                            count++;
+                            z.Value = float.Parse(reader.Value);
+                            masObj.Add(z);
+                            z = new Valute();
                             break;
-                    }
-
-                    if (count > 4)
-                    {
-                        masObj.Add(z);
-                        count = 0;
-                        z = new Valute();
-                    }
+                    }                                                         
                 }
                 db.Valutes.AddRange(masObj);
                 db.SaveChanges();
