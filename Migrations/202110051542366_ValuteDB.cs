@@ -3,7 +3,7 @@ namespace WpfApp2.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddValuteMigration : DbMigration
+    public partial class ValuteDB : DbMigration
     {
         public override void Up()
         {
@@ -11,12 +11,13 @@ namespace WpfApp2.Migrations
                 "dbo.Valutes",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
+                        ValuteId = c.String(),
                         NumCode = c.String(),
                         CharCode = c.String(),
                         Nominal = c.Int(nullable: false),
                         Name = c.String(),
-                        Value = c.Double(nullable: false),
+                        Value = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

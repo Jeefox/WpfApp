@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Frame Background="AliceBlue" Content="Frame" Name ="MainFrame" NavigationUIVisibility="Hidden"/>
+    <Frame Background="AliceBlue" Content="Frame" Name ="MainFrame" NavigationUIVisibility="Hidden" />
 
 </Window>

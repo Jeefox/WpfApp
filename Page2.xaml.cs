@@ -16,7 +16,7 @@ namespace WpfApp2
 
         private void HamburgerMenuNavigationButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Page1());
+            NavigationService.GoBack();
         }
     }
 }

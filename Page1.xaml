@@ -30,14 +30,14 @@
             <dxwui:HamburgerMenu.Content>
                 <dxwui:NavigationFrame/>
             </dxwui:HamburgerMenu.Content>
-            <dxwui:HamburgerMenuNavigationButton Content="Home" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Navigation/Home_16x16.png}" GlyphHeight="16" IsSelected="True" Click="HamburgerMenuNavigationButton_Click"/>
-            <dxwui:HamburgerMenuNavigationButton Content="New Page" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Actions/AddItem_16x16.png}" GlyphHeight="16" Click="HamburgerMenuNavigationButton_Click_1"/>
+            <dxwui:HamburgerMenuNavigationButton Content="Главная страница" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Navigation/Home_16x16.png}" GlyphHeight="16" IsSelected="True" Click="HamburgerMenuNavigationButton_Click"/>
+            <dxwui:HamburgerMenuNavigationButton Content="Список курсов валют" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Actions/AddItem_16x16.png}" GlyphHeight="16" Click="HamburgerMenuNavigationButton_Click_1"/>
             <dxwui:HamburgerMenuHyperlinkButton Content="Support" NavigateUri="https://www.devexpress.com/Support/"/>
         </dxwui:HamburgerMenu>
         <TextBlock HorizontalAlignment="Left" Margin="244,76,0,0" TextWrapping="Wrap" Text="Доллар" VerticalAlignment="Top" Height="44" Width="161" FontSize="20" TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Margin="244,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="37" Text="Рубль" FontSize="20" TextAlignment="Center"/>
         <TextBox x:Name="dollar" HorizontalAlignment="Left" Height="44" Margin="578,76,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
         <TextBox x:Name="ruble" HorizontalAlignment="Left" Height="37" Margin="578,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
-        <TextBox x:Name="data" HorizontalAlignment="Left" Height="74" Margin="578,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="date" HorizontalAlignment="Left" Height="74" Margin="578,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
     </Grid>
 </Page>

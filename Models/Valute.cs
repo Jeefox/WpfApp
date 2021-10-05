@@ -3,7 +3,8 @@ namespace WpfApp2.Models
 {
     public class Valute
     {      
-        public string Id { get; set; }
+        public int Id { get; set; }
+        public string ValuteId { get; set; }
         public string NumCode { get; set; }
         public string CharCode { get; set; }
         public int Nominal { get; set; }

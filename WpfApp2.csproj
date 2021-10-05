@@ -373,17 +373,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202110012209410_AddValuteMigration.cs" />
-    <Compile Include="Migrations\202110012209410_AddValuteMigration.Designer.cs">
-      <DependentUpon>202110012209410_AddValuteMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110041955027_AddBlogCreatedTimestamp.cs" />
-    <Compile Include="Migrations\202110041955027_AddBlogCreatedTimestamp.Designer.cs">
-      <DependentUpon>202110041955027_AddBlogCreatedTimestamp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110042012039_Valute.cs" />
-    <Compile Include="Migrations\202110042012039_Valute.Designer.cs">
-      <DependentUpon>202110042012039_Valute.cs</DependentUpon>
+    <Compile Include="Migrations\202110051542366_ValuteDB.cs" />
+    <Compile Include="Migrations\202110051542366_ValuteDB.Designer.cs">
+      <DependentUpon>202110051542366_ValuteDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Page1.xaml.cs">
@@ -436,14 +428,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202110012209410_AddValuteMigration.resx">
-      <DependentUpon>202110012209410_AddValuteMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110041955027_AddBlogCreatedTimestamp.resx">
-      <DependentUpon>202110041955027_AddBlogCreatedTimestamp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110042012039_Valute.resx">
-      <DependentUpon>202110042012039_Valute.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110051542366_ValuteDB.resx">
+      <DependentUpon>202110051542366_ValuteDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

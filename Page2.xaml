@@ -4,26 +4,67 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp2"
-      xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="WpfApp2.Page2"
+      xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:ComponentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase" x:Class="WpfApp2.Page2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page2" Background="White">
+      Title="Page2" Background="AliceBlue">
     <Page.Resources>
         <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource" ContextType="{x:Type local:ValuteContext}" Path="Valutes">
             <dx:DesignDataManager.DesignData>
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
         </dx:EntitySimpleDataSource>
+        <dx:EntityServerModeDataSource x:Key="EntityServerModeDataSource" ContextType="{x:Type local:ValuteContext}" DefaultSorting="{x:Null}" KeyExpression="Id" Path="Valutes">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:EntityServerModeDataSource>
+        <dx:EntityCollectionViewSource x:Key="EntityCollectionViewSource" Culture="ru-RU" ContextType="{x:Type local:ValuteContext}" CollectionViewType="{x:Type ListCollectionView}" Path="Valutes">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+            <dx:EntityCollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription CustomSort="{x:Null}" PropertyName="Id"/>
+                <PropertyGroupDescription CustomSort="{x:Null}" PropertyName="NumCode"/>
+                <PropertyGroupDescription CustomSort="{x:Null}" PropertyName="CharCode"/>
+                <PropertyGroupDescription CustomSort="{x:Null}" PropertyName="Nominal"/>
+                <PropertyGroupDescription CustomSort="{x:Null}" PropertyName="Name"/>
+                <PropertyGroupDescription CustomSort="{x:Null}" PropertyName="Value"/>
+            </dx:EntityCollectionViewSource.GroupDescriptions>
+            <dx:EntityCollectionViewSource.SortDescriptions>
+                <ComponentModel:SortDescription Direction="Ascending" PropertyName="Id"/>
+                <ComponentModel:SortDescription Direction="Ascending" PropertyName="NumCode"/>
+                <ComponentModel:SortDescription Direction="Ascending" PropertyName="CharCode"/>
+                <ComponentModel:SortDescription Direction="Ascending" PropertyName="Nominal"/>
+                <ComponentModel:SortDescription Direction="Ascending" PropertyName="Name"/>
+                <ComponentModel:SortDescription Direction="Ascending" PropertyName="Value"/>
+            </dx:EntityCollectionViewSource.SortDescriptions>
+        </dx:EntityCollectionViewSource>
+        <dx:EntityCollectionViewSource x:Key="EntityCollectionViewSource1" Culture="ru-RU" ContextType="{x:Type local:ValuteContext}" CollectionViewType="{x:Type ListCollectionView}" Path="Valutes">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:EntityCollectionViewSource>
+        <dx:EntityServerModeDataSource x:Key="EntityServerModeDataSource1" ContextType="{x:Type local:ValuteContext}" DefaultSorting="Id ASC" KeyExpression="Id" Path="Valutes">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:EntityServerModeDataSource>
         <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource1" ContextType="{x:Type local:ValuteContext}" Path="Valutes">
             <dx:DesignDataManager.DesignData>
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
         </dx:EntitySimpleDataSource>
-        <dx:EntityCollectionViewSource x:Key="EntityCollectionViewSource" Culture="ru-RU" ContextType="{x:Type local:ValuteContext}" CollectionViewType="{x:Type ListCollectionView}" Path="Valutes">
+        <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource2" ContextType="{x:Type local:ValuteContext}" Path="Money">
             <dx:DesignDataManager.DesignData>
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
-        </dx:EntityCollectionViewSource>
+        </dx:EntitySimpleDataSource>
+        <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource3" ContextType="{x:Type local:ValuteContext}" Path="Valutes">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:EntitySimpleDataSource>
     </Page.Resources>
 
     <Grid>
@@ -36,14 +77,14 @@
             <dxwui:HamburgerMenu.Content>
                 <dxwui:NavigationFrame/>
             </dxwui:HamburgerMenu.Content>
-            <dxwui:HamburgerMenuNavigationButton Content="Home" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Navigation/Home_16x16.png}" GlyphHeight="16" Click="HamburgerMenuNavigationButton_Click"/>
-            <dxwui:HamburgerMenuNavigationButton Content="New Page" GlyphWidth="16" Glyph="{dx:DXImage Office2013/Actions/AddItem_16x16.png}" GlyphHeight="16" IsSelected="True"/>
+            <dxwui:HamburgerMenuNavigationButton Content="Главная страница" GlyphWidth="16" Glyph="{dx:DXImage}" GlyphHeight="16" Click="HamburgerMenuNavigationButton_Click" />
+            <dxwui:HamburgerMenuNavigationButton Content="Список курсов валют" GlyphWidth="16" Glyph="{dx:DXImage}" GlyphHeight="16" IsSelected="True"/>
             <dxwui:HamburgerMenuHyperlinkButton Content="Support" NavigateUri="https://www.devexpress.com/Support/"/>
         </dxwui:HamburgerMenu>
 
-        <dxg:GridControl AutoGenerateColumns="RemoveOld" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="430" Width="745" ItemsSource="{Binding Data, Source={StaticResource EntityCollectionViewSource}}">
+        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Height="430" Width="679" ItemsSource="{Binding Data, Source={StaticResource EntitySimpleDataSource3}}">
             <dxg:GridControl.View>
-                <dxg:TableView IsSynchronizedWithCurrentItem="True"/>
+                <dxg:TableView ShowTotalSummary="True" IsSynchronizedWithCurrentItem="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
 

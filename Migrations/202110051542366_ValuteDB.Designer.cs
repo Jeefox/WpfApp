@@ -7,13 +7,13 @@ namespace WpfApp2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddBlogCreatedTimestamp : IMigrationMetadata
+    public sealed partial class ValuteDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddBlogCreatedTimestamp));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ValuteDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202110041955027_AddBlogCreatedTimestamp"; }
+            get { return "202110051542366_ValuteDB"; }
         }
         
         string IMigrationMetadata.Source

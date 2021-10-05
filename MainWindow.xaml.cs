@@ -3,6 +3,7 @@ using WpfApp2.Models;
 using System.Xml;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WpfApp2
 {
@@ -48,7 +49,7 @@ namespace WpfApp2
                             data = reader.GetAttribute("Date");
                             break;
                         case "Valute":                           
-                            z.Id = (string)reader.GetAttribute("ID");
+                            z.ValuteId = (string)reader.GetAttribute("ID");
                             break;
                         case "NumCode":
                             
@@ -93,11 +94,13 @@ namespace WpfApp2
                             masObj.Add(z);
                             z = new Valute();
                             break;
-                    }                                                         
-                }
-                db.Valutes.AddRange(masObj);
-                db.SaveChanges();
+                    }
+                    db.Valutes.AddRange(masObj);
+                    db.SaveChanges();
+                }               
+                
             }
-        }
+            
+        }       
     }
 }
