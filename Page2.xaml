@@ -55,12 +55,17 @@
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
         </dx:EntitySimpleDataSource>
-        <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource2" ContextType="{x:Type local:ValuteContext}" Path="Money">
+        <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource2" ContextType="{x:Type local:ValuteContext}" Path="Valutes">
             <dx:DesignDataManager.DesignData>
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
         </dx:EntitySimpleDataSource>
         <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource3" ContextType="{x:Type local:ValuteContext}" Path="Valutes">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:EntitySimpleDataSource>
+        <dx:EntitySimpleDataSource x:Key="EntitySimpleDataSource4" ContextType="{x:Type local:ValuteContext}" Path="Valutes">
             <dx:DesignDataManager.DesignData>
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
@@ -82,9 +87,9 @@
             <dxwui:HamburgerMenuHyperlinkButton Content="Support" NavigateUri="https://www.devexpress.com/Support/"/>
         </dxwui:HamburgerMenu>
 
-        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Height="430" Width="679" ItemsSource="{Binding Data, Source={StaticResource EntitySimpleDataSource3}}">
+        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="False" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Height="430" Width="679" ItemsSource="{Binding Data, Source={StaticResource EntitySimpleDataSource4}}">
             <dxg:GridControl.View>
-                <dxg:TableView ShowTotalSummary="True" IsSynchronizedWithCurrentItem="True"/>
+                <dxg:TableView ShowTotalSummary="True" IsSynchronizedWithCurrentItem="True" Margin="-101,0,-2,-2"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
 
