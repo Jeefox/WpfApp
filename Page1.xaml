@@ -38,6 +38,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="244,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="37" Text="Рубль" FontSize="20" TextAlignment="Center"/>
         <TextBox x:Name="dollar" HorizontalAlignment="Left" Height="44" Margin="578,76,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
         <TextBox x:Name="ruble" HorizontalAlignment="Left" Height="37" Margin="578,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
-        <TextBox x:Name="date" HorizontalAlignment="Left" Height="74" Margin="578,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="date" HorizontalAlignment="Left" Height="74" Margin="578,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165" TextChanged="date_TextChanged"/>
     </Grid>
 </Page>

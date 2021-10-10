@@ -31,5 +31,10 @@ namespace WpfApp2
         {
             date.Text = MainWindow.data;            
         }
+
+        private void date_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            date.Text = MainWindow.data;
+        }
     }
 }

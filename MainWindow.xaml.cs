@@ -4,9 +4,21 @@ using System.Xml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Quartz;
+using Quartz.Impl;
+using System.Threading.Tasks;
 
 namespace WpfApp2
 {
+    public class TimeJob : IJob
+    {
+        Task IJob.Execute(IJobExecutionContext context)
+        {
+            var timeStr = $"{DateTime.UtcNow.Hour}/{DateTime.UtcNow.Day}/{DateTime.UtcNow.Year}";
+            MainWindow.AddDataToTable(timeStr);
+            return Task.CompletedTask;
+        }
+    }
 
     public partial class MainWindow : Window
     {
@@ -15,37 +27,53 @@ namespace WpfApp2
         public static string data = "";
         public MainWindow()
         {
+            var timeStr = "";
             InitializeComponent();
             MainFrame.Content = new Page1();
-            AddDataToTable();
+            AddDataToTable(timeStr = $"{DateTime.UtcNow.Hour}/{DateTime.UtcNow.Day}/{DateTime.UtcNow.Year}");
             page.getInitData();
+        }
+
+        async Task Trigger()
+        {
+            //var job = new JobDetail("dumbJob", null, typeof(Quartz.Jobs.NativeJob));
+            //job.JobDataMap.Put(Quartz.Jobs.NativeJob.PropertyCommand, "echo \"hi\" >> foobar.txt");
+
+            //var trigger1 = TriggerUtils.MakeSecondlyTrigger(5);
+            //trigger1.Name = "dumbTrigger";
+            //await scheduler.ScheduleJob(job, trigger);
+
+            var factory = new StdSchedulerFactory();
+            var scheduler = await factory.GetScheduler();
+
+            var trigger = TriggerBuilder.Create()
+                .WithIdentity("trigger3", "group1")
+                .WithCronSchedule("0 0 0/1 1/1 * ? *")
+                .ForJob("myTimeJob")
+                .Build();
+
+            var job = new JobDetailImpl("myTimeJob", typeof(TimeJob));
+            scheduler.AddJob(job, true);
+            scheduler.TriggerJob(trigger.JobKey);
+            await scheduler.Start();
 
         }
 
         private void ButtClick1(object sender, RoutedEventArgs e)
         {
-
         }
 
-        private void AddDataToTable()
+        public static void AddDataToTable(string timeStr)
         {
-            /*StdSchedulerFactory factory = new StdSchedulerFactory();
-            IScheduler scheduler = await factory.GetScheduler();
-            await scheduler.Start();
-
-            ITrigger trigger = TriggerBuilder.Create()
-            .WithIdentity("trigger3", "group1")
-            .WithCronSchedule("0 0 0/1 1/1 * ? *")
-            .ForJob("myJob", "group1")
-            .Build();*/
+            
             using (ValuteContext db = new ValuteContext())
             {
 
-                string URLString = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=04/10/2021";
-                XmlReader reader = new XmlTextReader(URLString);
+                var URLString = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=" + timeStr;
+                var reader = new XmlTextReader(URLString);
 
-                List<Valute> masObj = new List<Valute>();
-                Valute z = new Valute();
+                var masObj = new List<Valute>();
+                var z = new Valute();
                 if (!db.Valutes.Any())
                 {
                     while (reader.Read())
